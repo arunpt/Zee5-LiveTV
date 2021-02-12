@@ -9,7 +9,7 @@ $stream_url = $channel_meta->stream_url_hls;
 $tok_json = JsonfromURI("https://useraction.zee5.com/token/live.php");
 $video_token = $tok_json->video_token;
 $m3u8 = $stream_url.$video_token;
-echo $m3u8;
+header('Location: '.$m3u8, true, 301);
 
 function JsonfromURI($url) {
    $resp = file_get_contents($url);       
